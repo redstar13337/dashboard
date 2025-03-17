@@ -21,6 +21,7 @@ export class AppComponent {
   matchIds: string[] = [];
   selectedMatchId: string | null = null;
   matchDetailsMap: Map<string, any> = new Map();
+  csvData: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -102,6 +103,44 @@ export class AppComponent {
 
   getMatchDetails() {
     return this.selectedMatchId ? this.matchDetailsMap.get(this.selectedMatchId) : null;
+  }
+
+  generateCSV() {
+    if (!this.selectedMatchId) return;
+    
+    const matchData = this.getMatchDetails();
+    if (!matchData) return;
+
+    // Extract the desired fields
+    const fieldsToExtract = ['metadata.matchId', 'info.gameMode', 'info.gameDuration', 'info.participants'];
+    const csvRows = [];
+
+    // Header row
+    csvRows.push(fieldsToExtract.join(','));
+
+    // Extract data and push to rows
+    const matchId = matchData.metadata.matchId;
+    const gameMode = matchData.info.gameMode;
+    const gameDuration = matchData.info.gameDuration;
+
+    // Adding participants as a single cell (comma-separated)
+    const participants = matchData.info.participants.map((p: any) => p.summonerName).join(';');
+
+    csvRows.push(`${matchId},${gameMode},${gameDuration},"${participants}"`);
+
+    // Convert to CSV string
+    this.csvData = csvRows.join('\n');
+    this.downloadCSV();
+  }
+
+  downloadCSV() {
+    const blob = new Blob([this.csvData], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'match_data.csv';
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
 
 }

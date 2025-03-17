@@ -29,6 +29,7 @@
             <div class="json-viewer" *ngIf="getMatchDetails()">
                 <strong>Match Details:</strong>
                 <pre>{{ getMatchDetails() | json }}</pre>
+                <button (click)="generateCSV()">Download as CSV</button>
             </div>
         </div>
     </div>
