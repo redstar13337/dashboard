@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
@@ -5,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, HttpClientModule],
+  imports: [RouterOutlet, FormsModule, HttpClientModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,6 +18,7 @@ export class AppComponent {
   apiKey: string = 'RGAPI-69bc90e7-5f6c-482c-9278-37f58d439035';
 
   puuid: string = '';
+  matchIds: string[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -61,7 +63,8 @@ export class AppComponent {
         console.log('API Response:', response);
         try {
           const jsonResponse = JSON.parse(response);
-          console.log(jsonResponse);        
+          console.log(jsonResponse);
+          this.matchIds = jsonResponse;
         } catch (error) {
           console.error('Failed to parse JSON:', error);
         }
@@ -70,6 +73,10 @@ export class AppComponent {
         console.error('Error:', error);
       }
     );
+  }
+
+  onMatchClick(matchId: string) {
+    alert(`Match ID Clicked: ${matchId}`);
   }
 
 }
