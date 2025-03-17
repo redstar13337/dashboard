@@ -1,5 +1,15 @@
 <div class="background-container">
 
+    <div class="input-container">
+        <input type="text" placeholder="Summoner name" [(ngModel)]="summonerName">
+        <input type="text" placeholder="Tag" [(ngModel)]="tag">
+        <button (click)="fetchAccount()">Fetch Account</button>
+
+        <!-- Display the saved puuid -->
+        <div style="margin-top: 20px; color: blanchedalmond;">
+            <strong>PUUID:</strong> {{ puuid }}
+        </div>
+    </div>
 </div>
 
 <router-outlet />
