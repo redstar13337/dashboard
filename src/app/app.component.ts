@@ -19,6 +19,8 @@ export class AppComponent {
 
   puuid: string = '';
   matchIds: string[] = [];
+  selectedMatchId: string | null = null;
+  matchDetailsMap: Map<string, any> = new Map();
 
   constructor(private http: HttpClient) {}
 
@@ -76,7 +78,30 @@ export class AppComponent {
   }
 
   onMatchClick(matchId: string) {
-    alert(`Match ID Clicked: ${matchId}`);
+    this.selectedMatchId = matchId;
+
+    if (this.matchDetailsMap.has(matchId)) {
+      return;
+    }
+
+    // If not cached, fetch from the API
+    const url = `https://europe.api.riotgames.com/lol/match/v5/matches/${matchId}`;
+    const headers = new HttpHeaders({ 'X-Riot-Token': this.apiKey });
+
+    this.http.get(url, { headers })
+      .subscribe(
+        response => {
+          console.log('Fetched Match Details:', response);
+          this.matchDetailsMap.set(matchId, response);  // Store in cache
+        },
+        error => {
+          console.error('Error fetching match details:', error);
+        }
+      );
+  }
+
+  getMatchDetails() {
+    return this.selectedMatchId ? this.matchDetailsMap.get(this.selectedMatchId) : null;
   }
 
 }

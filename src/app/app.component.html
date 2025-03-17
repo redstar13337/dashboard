@@ -10,14 +10,26 @@
             <strong>PUUID:</strong> {{ puuid }}
         </div>
 
-        <!-- Display the list if available -->
-        <div *ngIf="matchIds.length > 0" class="matches-list">
-            <strong>Match IDs:</strong>
-            <ul>
-                <li *ngFor="let matchId of matchIds" (click)="onMatchClick(matchId)">
-                    {{ matchId }}
-                </li>
-            </ul>
+        <div class="content-container">
+            <!-- Display the list if available -->
+            <div *ngIf="matchIds.length > 0" class="matches-list">
+                <strong>Match IDs:</strong>
+                <ul>
+                    <li
+                        *ngFor="let matchId of matchIds"
+                        (click)="onMatchClick(matchId)"
+                        [class.selected]="matchId === selectedMatchId"
+                    >
+                        {{ matchId }}
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Column: JSON Data Viewer -->
+            <div class="json-viewer" *ngIf="getMatchDetails()">
+                <strong>Match Details:</strong>
+                <pre>{{ getMatchDetails() | json }}</pre>
+            </div>
         </div>
     </div>
 </div>
