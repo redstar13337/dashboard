@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/app.component.css"],
-  "sourcesContent": [".background-container{\n    width: 100%;\n    height: 100vh;\n    background-image: url('/assets/images/lol-map.png');\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat;\n}"],
-  "mappings": "AAAA,CAAC,qBACG,MAAO,KACP,OAAQ,MACR,iBAAkB,gCAClB,gBAAiB,MACjB,oBAAqB,OACrB,kBAAmB,SACvB",
-  "names": []
-}
