@@ -38,5 +38,5 @@ ${n.map((r,o)=>`${o+1}) ${r.toString()}`).join(`
 </div>
 
 <router-outlet />
-`;var pR=`.background-container{width:100%;height:100vh;background-image:url(/assets/images/lol-map.png);background-size:cover;background-position:center;background-repeat:no-repeat}
+`;var pR=`.background-container{width:100%;height:100vh;background-image:url(https://redstar13337.github.io/dashboard/assets/images/lol-map.png);background-size:cover;background-position:center;background-repeat:no-repeat}
 `;var ip=class{title="dashboard"};ip=zE([Ac({selector:"app-root",imports:[Fn],template:fR,styles:[pR]})],ip);mx(ip,dR).catch(t=>console.error(t));
