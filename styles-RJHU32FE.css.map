@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/styles.css"],
+  "sourcesContent": ["/* You can add global styles to this file, and also import other style files */\nhtml, body {\n    margin: 0;\n    padding: 0;\n    height: 100%;\n    width: 100%;\n}"],
+  "mappings": "AACA,KAAM,KADN,OAEY,EAFZ,QAGa,EACT,OAAQ,KACR,MAAO,IACX",
+  "names": []
+}
