@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import packageJson from '../../package.json';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'dashboard';
+  public appVersion: string = packageJson.version;
 
   summonerName: string = '';
   tag: string = '';

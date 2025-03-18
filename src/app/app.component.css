@@ -27,44 +27,57 @@
     justify-content: space-between;
     width: 80%;
     margin: 0 auto;
-  }
+}
 
 /* Styling the matches list */
 .matches-list {
-    margin-top: 20px;
-    width: 300px;
-    text-align: left;
-  }
-  
-  .matches-list ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .matches-list li {
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 8px;
-    background-color: #f0f0f0;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .matches-list li:hover {
-    background-color: #d0d0d0;
-  }
-  
-  /* Highlight the selected item */
-  .matches-list li.selected {
-    background-color: #a5d6a7;
-  }
+  margin-top: 20px;
+  width: 300px;
+  text-align: left;
+}
+
+.matches-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.matches-list li {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.matches-list li:hover {
+  background-color: #d0d0d0;
+}
+
+/* Highlight the selected item */
+.matches-list li.selected {
+  background-color: #a5d6a7;
+}
 
 
 /* JSON Viewer Styling */
 .json-viewer {
-    width: 55%;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
+  width: 55%;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Version Badge Styling */
+.version-badge {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #2f00ff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+}
